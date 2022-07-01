@@ -30,24 +30,17 @@ describe('Testes da função getOpeningHours', () => {
     expect(() => getOpeningHours('Tuesday', '11:78-am')).toThrow('The minutes must be between 0 and 59');
   });
   it('Se forem passados horários nos quais o zoológico esteja fechado retornará que está fechado', () => {
-    expect('The zoo is closed').toEqual(getOpeningHours('Tuesday', '00:00-am'));
-    expect('The zoo is closed').toEqual(getOpeningHours('Tuesday', '06:00-am'));
-    expect('The zoo is closed').toEqual(getOpeningHours('Tuesday', '08:00-pm'));
-    expect('The zoo is closed').toEqual(getOpeningHours('Monday', '06:00-am'));
-    expect('The zoo is closed').toEqual(getOpeningHours('Monday', '06:00-pm'));
+    const closed = 'The zoo is closed';
+    expect(closed).toEqual(getOpeningHours('Tuesday', '00:00-am'));
+    expect(closed).toEqual(getOpeningHours('Tuesday', '06:00-am'));
+    expect(closed).toEqual(getOpeningHours('Tuesday', '08:00-pm'));
+    expect(closed).toEqual(getOpeningHours('Monday', '06:00-am'));
+    expect(closed).toEqual(getOpeningHours('Monday', '06:00-pm'));
   });
   it('Se forem passados horários nos quais o zoológico esteja aberto retornará que está aberto', () => {
-    expect('The zoo is open').toEqual(getOpeningHours('Friday', '11:00-am'));
-    expect('The zoo is open').toEqual(getOpeningHours('Saturday', '06:00-pm'));
-    expect('The zoo is open').toEqual(getOpeningHours('Sunday', '03:00-pm'));    
+    const open = 'The zoo is open';
+    expect(open).toEqual(getOpeningHours('Friday', '11:00-am'));
+    expect(open).toEqual(getOpeningHours('Saturday', '06:00-pm'));
+    expect(open).toEqual(getOpeningHours('Sunday', '03:00-pm'));
   });
-  // it('', () => {
-  //   expect().toEqual(getOpeningHours());
-  // });
-  // it('', () => {
-  //   expect().toEqual(getOpeningHours());
-  // });
-  // it('', () => {
-  //   expect().toEqual(getOpeningHours());
-  // });
 });
