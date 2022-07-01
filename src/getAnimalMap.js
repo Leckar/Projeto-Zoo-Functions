@@ -4,31 +4,31 @@ const data = require('../data/zoo_data');
 const regions = ['NE', 'NW', 'SE', 'SW'];
 
 function getAnimals(region) { // Funcionando
-  const animalList = species.filter((e) => e.location === region).map((e) => e.name);
+  const animalList = species.filter(({ location }) => location === region).map(({ name }) => name);
   return animalList;
 }
-function animalsByName(name, p) {
-  const target = species.find((e) => e.name === name);
+function animalsByName(nome, p) {
+  const target = species.find(({ name }) => name === nome);
   const list = {};
-  list[name] = [];
+  list[nome] = [];
   if (p.sorted) {
-    const aniList = target.residents.map((e) => e.name);
-    list[name] = aniList.sort();
+    const aniList = target.residents.map(({ name }) => name);
+    list[nome] = aniList.sort();
     return list;
   }
-  list[name] = target.residents.map((e) => e.name);
+  list[nome] = target.residents.map(({ name }) => name);
   return list;
 }
-function animalsBySex(name, p) {
-  const target = species.find((e) => e.name === name);
+function animalsBySex(nome, p) {
+  const target = species.find(({ name }) => name === nome);
   const list = {};
-  list[name] = [];
+  list[nome] = [];
   if (p.sorted) {
-    const aniList = target.residents.filter((e) => e.sex === p.sex).map((e) => e.name);
-    list[name] = aniList.sort();
+    const aniList = target.residents.filter(({ sex }) => sex === p.sex).map(({ name }) => name);
+    list[nome] = aniList.sort();
     return list;
   }
-  list[name] = target.residents.filter((e) => e.sex === p.sex).map((e) => e.name);
+  list[nome] = target.residents.filter(({ sex }) => sex === p.sex).map(({ name }) => name);
   return list;
 }
 function namedAnimalsList(region, p) {
