@@ -37,7 +37,6 @@ function fullSchedule() {
   });
   return schedule;
 }
-console.log(fullSchedule());
 function getSchedule(scheduleTarget) {
   const check = paramCheck(scheduleTarget);
   switch (check) {
