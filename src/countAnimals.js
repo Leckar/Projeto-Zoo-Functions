@@ -13,7 +13,9 @@ function countAnimals(animal) {
     return quantity;
   }
   const animalDatabase = {};
-  species.forEach(({ name, residents }) => (animalDatabase[name] = residents.length));
+  species.forEach(({ name, residents }) => {
+    animalDatabase[name] = residents.length;
+  });
   return animalDatabase;
 }
 

@@ -3,18 +3,18 @@ const data = require('../data/zoo_data');
 function paramCheck(param) {
   const { hours, species } = data;
   if (Object.keys(hours).includes(param)) return 'day';
-  if (species.some((e) => e.name === param)) return 'animal';
+  if (species.some(({ name }) => name === param)) return 'animal';
   return false;
 }
 function animalSchedules(target) {
   const { species } = data;
-  const targetSpecies = species.find((e) => e.name === target);
+  const targetSpecies = species.find(({ name }) => name === target);
   return targetSpecies.availability;
 }
 
 function animalFinder(targetDay) {
   const { species } = data;
-  return species.filter((e) => e.availability.includes(targetDay)).map((e) => e.name);
+  return species.filter((e) => e.availability.includes(targetDay)).map(({ name }) => name);
 }
 function daySchedules(target) {
   if (target === 'Monday') {

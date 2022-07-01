@@ -1,9 +1,9 @@
 const data = require('../data/zoo_data');
 
 function countEntrants(entrants) {
-  const children = entrants.filter((p) => p.age < 18).length;
-  const adults = entrants.filter((p) => p.age >= 18 && p.age < 50).length;
-  const seniors = entrants.filter((p) => p.age >= 50).length;
+  const children = entrants.filter(({ age }) => age < 18).length;
+  const adults = entrants.filter(({ age }) => age >= 18 && age < 50).length;
+  const seniors = entrants.filter(({ age }) => age >= 50).length;
   return { child: children, adult: adults, senior: seniors };
 }
 

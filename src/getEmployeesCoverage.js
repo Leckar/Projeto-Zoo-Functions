@@ -2,7 +2,7 @@ const data = require('../data/zoo_data');
 
 function paramChecker(n) {
   const { employees } = data;
-  const a = employees.some((e) => e.id === n.id);
+  const a = employees.some(({ id }) => id === n.id);
   const b = employees.some((e) => e.firstName === n.name || e.lastName === n.name);
   if (!a && !b) throw new Error('Informações inválidas');
 }
@@ -13,11 +13,11 @@ function employeeFinder(n) {
     const b = n.name;
     return employees.find((e) => e.firstName === b || e.lastName === b);
   }
-  return employees.find((e) => e.id === n.id);
+  return employees.find(({ id }) => id === n.id);
 }
 function animalGetter(param) {
   const { species } = data;
-  const animal = species.find((e) => e.id === param);
+  const animal = species.find(({ id }) => id === param);
   return [animal.name, animal.location];
 }
 function dataConstructor(param) {
