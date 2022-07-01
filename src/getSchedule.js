@@ -2,12 +2,8 @@ const data = require('../data/zoo_data');
 
 function paramCheck(param) {
   const { hours, species } = data;
-  if (Object.keys(hours).includes(param)) {
-    return 'day';
-  }
-  if (species.some((e) => e.name === param)) {
-    return 'animal';
-  }
+  if (Object.keys(hours).includes(param)) return 'day';
+  if (species.some((e) => e.name === param)) return 'animal';
   return false;
 }
 function animalSchedules(target) {

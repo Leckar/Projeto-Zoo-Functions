@@ -4,9 +4,7 @@ function paramChecker(n) {
   const { employees } = data;
   const a = employees.some((e) => e.id === n.id);
   const b = employees.some((e) => e.firstName === n.name || e.lastName === n.name);
-  if (!a && !b) {
-    throw new Error('Informações inválidas');
-  }
+  if (!a && !b) throw new Error('Informações inválidas');
 }
 function employeeFinder(n) {
   const { employees } = data;
